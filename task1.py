@@ -8,7 +8,7 @@
 from copy import deepcopy
 
 
-# --- Первый способ ---
+# --- Первый способ (через перебор) ---
 class FlatIterator1:
 
     def __init__(self, list_of_list):
@@ -36,7 +36,7 @@ class FlatIterator1:
             raise StopIteration
 
 
-# --- Второй способ ---
+# --- Второй способ (через удаление с глубоким копированием списка) ---
 class FlatIterator2:
 
     def __init__(self, list_of_list):
