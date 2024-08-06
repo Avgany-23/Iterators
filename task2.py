@@ -3,25 +3,20 @@
 возвращает их плоское представление. Функция test в коде ниже также должна отработать без ошибок.
 """
 
-
-
 import types
 
 
 def flat_generator(list_of_lists):
 
-    ...
-    yield
-    ...
+    for element in list_of_lists:
+        yield from element
 
 
 def test_2():
 
-    list_of_lists_1 = [
-        ['a', 'b', 'c'],
-        ['d', 'e', 'f', 'h', False],
-        [1, 2, None]
-    ]
+    list_of_lists_1 = [['a', 'b', 'c'],
+                       ['d', 'e', 'f', 'h', False],
+                       [1, 2, None]]
 
     for flat_iterator_item, check_item in zip(
             flat_generator(list_of_lists_1),
@@ -31,7 +26,6 @@ def test_2():
         assert flat_iterator_item == check_item
 
     assert list(flat_generator(list_of_lists_1)) == ['a', 'b', 'c', 'd', 'e', 'f', 'h', False, 1, 2, None]
-
     assert isinstance(flat_generator(list_of_lists_1), types.GeneratorType)
 
 

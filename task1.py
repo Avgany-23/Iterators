@@ -36,12 +36,11 @@ class FlatIterator1:
             raise StopIteration
 
 
-# --- Первый способ ---
+# --- Второй способ ---
 class FlatIterator2:
 
     def __init__(self, list_of_list):
         self.list_of_list = deepcopy(list_of_list)
-        self.len_list = len(list_of_list)
 
     def __iter__(self):
         self.index = 0
@@ -50,6 +49,7 @@ class FlatIterator2:
     def __next__(self):
         self.index += 1
         if self.list_of_list:
+
             if len(self.list_of_list[0]) == 1:
                 result_element = self.list_of_list[0].pop(0)
                 self.list_of_list.pop(0)

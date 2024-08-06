@@ -7,15 +7,19 @@
 class FlatIterator:
 
     def __init__(self, list_of_list):
-        self.list_of_list = list_of_list
+        self.list_reverse = list(reversed(list_of_list))
 
     def __iter__(self):
-        ...
         return self
 
     def __next__(self):
-        ...
-        return item
+        while self.list_reverse:
+            element = self.list_reverse.pop()
+            if isinstance(element, list):
+                self.list_reverse.extend(reversed(element))
+            else:
+                return element
+        raise StopIteration
 
 
 def test_3():

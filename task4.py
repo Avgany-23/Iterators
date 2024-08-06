@@ -8,9 +8,12 @@ import types
 
 
 def flat_generator(list_of_list):
-    ...
-    yield
-    ...
+    for el in list_of_list:
+        if not isinstance(el, list):
+            yield el
+        else:
+            yield from flat_generator(el)
+
 
 def test_4():
 
