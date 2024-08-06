@@ -36,7 +36,7 @@ class FlatIterator1:
             raise StopIteration
 
 
-# --- Первый способ ---
+# --- Второй способ ---
 class FlatIterator2:
 
     def __init__(self, list_of_list):
